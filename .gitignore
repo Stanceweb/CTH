@@ -1,0 +1,18 @@
+# Next.js
+node_modules/
+.next/
+out/
+
+# Local env
+.env
+.env.local
+.env.*.local
+
+# Generated backups on VPS
+*.bak_*
+.backup_*/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
