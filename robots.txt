@@ -1,5 +1,4 @@
-User-agent: *
+User-Agent: *
 Allow: /
 
-Host: continentaltrustonline.online
 Sitemap: https://continentaltrustonline.online/sitemap.xml

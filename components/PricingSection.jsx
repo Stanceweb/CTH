@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { CheckCircle2 } from "lucide-react";
 import { PLAN_DATA } from "@/lib/plans";
 
 const STORAGE_KEYS = {
@@ -67,13 +68,7 @@ export default function PricingSection({ showDetailsLink = false }) {
     const row = (label, values) => ({ label, values });
 
     return [
-      row(
-        "Price",
-        PLAN_DATA.map((plan) => {
-          const amount = plan.prices[currency][billing];
-          return `${formatPrice(currency, amount)} / ${billingSuffix}`;
-        })
-      ),
+      row("Price", PLAN_DATA.map((plan) => `${formatPrice(currency, plan.prices[currency][billing])} / ${billingSuffix}`)),
       row("Billing cycle", PLAN_DATA.map(() => (billing === "monthly" ? "Monthly billing" : "Annual billing"))),
       row(
         "Renewal price",
@@ -127,6 +122,7 @@ export default function PricingSection({ showDetailsLink = false }) {
             <button type="button" aria-pressed={currency === "NGN"} onClick={() => setCurrency("NGN")}>NGN</button>
           </div>
         </div>
+
         <div>
           <span className="sr-only" id="billing-toggle-label">Select billing cycle</span>
           <div className="toggle" role="group" aria-labelledby="billing-toggle-label">
@@ -134,6 +130,7 @@ export default function PricingSection({ showDetailsLink = false }) {
             <button type="button" aria-pressed={billing === "yearly"} onClick={() => setBilling("yearly")}>Annual</button>
           </div>
         </div>
+
         <strong>{billingBadge}</strong>
       </div>
 
@@ -142,21 +139,13 @@ export default function PricingSection({ showDetailsLink = false }) {
       <div className="plan-cards">
         {PLAN_DATA.map((plan) => {
           const currentPrice = plan.prices[currency][billing];
-          const renewal = currency === "USD"
-            ? (billing === "monthly" ? plan.prices.USD.renewMonthly : plan.prices.USD.renewYearly)
-            : null;
+          const renewal = currency === "USD" ? (billing === "monthly" ? plan.prices.USD.renewMonthly : plan.prices.USD.renewYearly) : null;
 
           return (
-            <article
-              key={plan.key}
-              className={plan.recommended ? "plan-card plan-card--recommended" : "plan-card"}
-              aria-label={`${plan.name} plan`}
-            >
+            <article key={plan.key} className={plan.recommended ? "plan-card plan-card--recommended" : "plan-card"} aria-label={`${plan.name} plan`}>
               {plan.recommended ? <p className="plan-badge">Recommended</p> : null}
               <h3>{plan.name}</h3>
-              <p className="plan-price">
-                {formatPrice(currency, currentPrice)} <span className="plan-meta">/{billingSuffix}</span>
-              </p>
+              <p className="plan-price">{formatPrice(currency, currentPrice)} <span className="plan-meta">/{billingSuffix}</span></p>
 
               {currency === "USD" ? (
                 <p className="plan-meta">Renews at {formatPrice("USD", renewal)} / {billingSuffix}</p>
@@ -165,11 +154,11 @@ export default function PricingSection({ showDetailsLink = false }) {
               )}
 
               <ul className="plan-list">
-                <li><span className="check-icon" aria-hidden="true">✓</span>{plan.features.websites}</li>
-                <li><span className="check-icon" aria-hidden="true">✓</span>{plan.features.storage}</li>
-                <li><span className="check-icon" aria-hidden="true">✓</span>{plan.features.bandwidth}</li>
-                <li><span className="check-icon" aria-hidden="true">✓</span>{plan.features.ssl} and {plan.features.backups}</li>
-                <li><span className="check-icon" aria-hidden="true">✓</span>{plan.features.support}</li>
+                <li><CheckCircle2 size={16} className="check-icon" aria-hidden="true" />{plan.features.websites}</li>
+                <li><CheckCircle2 size={16} className="check-icon" aria-hidden="true" />{plan.features.storage}</li>
+                <li><CheckCircle2 size={16} className="check-icon" aria-hidden="true" />{plan.features.bandwidth}</li>
+                <li><CheckCircle2 size={16} className="check-icon" aria-hidden="true" />{plan.features.ssl} and {plan.features.backups}</li>
+                <li><CheckCircle2 size={16} className="check-icon" aria-hidden="true" />{plan.features.support}</li>
               </ul>
 
               <div className="plan-cta-row">
@@ -189,18 +178,14 @@ export default function PricingSection({ showDetailsLink = false }) {
             <thead>
               <tr>
                 <th scope="col">Feature</th>
-                {PLAN_DATA.map((plan) => (
-                  <th key={plan.key} scope="col">{plan.name}</th>
-                ))}
+                {PLAN_DATA.map((plan) => <th key={plan.key} scope="col">{plan.name}</th>)}
               </tr>
             </thead>
             <tbody>
               {rows.map((row) => (
                 <tr key={row.label}>
                   <td className="row-label">{row.label}</td>
-                  {row.values.map((value, index) => (
-                    <td key={`${row.label}-${PLAN_DATA[index].key}`}>{value}</td>
-                  ))}
+                  {row.values.map((value, index) => <td key={`${row.label}-${PLAN_DATA[index].key}`}>{value}</td>)}
                 </tr>
               ))}
             </tbody>
@@ -210,9 +195,7 @@ export default function PricingSection({ showDetailsLink = false }) {
 
       {showDetailsLink ? (
         <p className="link-row">
-          <Link className="text-link" href="/pricing/">
-            Need full plan and billing details? Open the complete pricing page.
-          </Link>
+          <Link className="text-link" href="/pricing/">Need full plan and billing details? Open the complete pricing page.</Link>
         </p>
       ) : null}
     </div>

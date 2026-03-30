@@ -1,4 +1,22 @@
+import Image from "next/image";
 import Link from "next/link";
+import {
+  BadgeCheck,
+  Banknote,
+  CheckCircle2,
+  CloudUpload,
+  CreditCard,
+  DatabaseBackup,
+  Gauge,
+  Globe,
+  Handshake,
+  Headset,
+  Layers3,
+  LockKeyhole,
+  MonitorCheck,
+  ShieldCheck,
+  UserRound,
+} from "lucide-react";
 import PricingSection from "@/components/PricingSection";
 
 export const metadata = {
@@ -25,6 +43,112 @@ const ORG_SCHEMA = {
   ],
 };
 
+const proofCards = [
+  {
+    title: "Secure billing",
+    body: "Payments and plan changes run through a structured account portal with clear visibility.",
+    icon: CreditCard,
+  },
+  {
+    title: "SSL included",
+    body: "SSL provisioning is included on managed plans so sites launch with HTTPS by default.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Guided migration",
+    body: "Migration planning is handled with checklists and verification steps before cutover.",
+    icon: Handshake,
+  },
+  {
+    title: "Monitored services",
+    body: "Core hosting services are monitored, with escalation based on impact and severity.",
+    icon: MonitorCheck,
+  },
+  {
+    title: "Portal access",
+    body: "Billing, subscriptions, and account controls are available in one customer portal.",
+    icon: UserRound,
+  },
+  {
+    title: "Local-friendly support",
+    body: "Support workflows are optimized for Nigerian businesses and global teams alike.",
+    icon: Globe,
+  },
+];
+
+const features = [
+  {
+    title: "Fast onboarding",
+    body: "Launch quickly with guided setup paths for developers, freelancers, and small teams.",
+    icon: CloudUpload,
+    href: "/migrations/",
+    cta: "See migration flow",
+  },
+  {
+    title: "NGN and USD billing",
+    body: "Choose local or international pricing, with transparent intro and renewal visibility.",
+    icon: Banknote,
+    href: "/pricing/",
+    cta: "Review plan pricing",
+  },
+  {
+    title: "Security controls",
+    body: "SSL, account protection, and monitoring coverage are built into managed operations.",
+    icon: LockKeyhole,
+    href: "/security/",
+    cta: "Explore security",
+  },
+  {
+    title: "Automated backups",
+    body: "Automatic backups support quick restore workflows when incidents affect production.",
+    icon: DatabaseBackup,
+    href: "/backups/",
+    cta: "Read backup coverage",
+  },
+  {
+    title: "Support that responds",
+    body: "Sales, billing, and technical support channels are clearly separated for speed.",
+    icon: Headset,
+    href: "/support/",
+    cta: "Open support page",
+  },
+  {
+    title: "Operational visibility",
+    body: "Status communication and issue triage reduce uncertainty during critical moments.",
+    icon: Gauge,
+    href: "/status/",
+    cta: "View status approach",
+  },
+];
+
+const faqItems = [
+  {
+    q: "How long does migration take?",
+    a: "Most standard website migrations are completed within 24 to 72 hours, depending on the size and complexity of the site.",
+  },
+  {
+    q: "What is your backup retention policy?",
+    a: "Backups are performed automatically and retained based on your active hosting plan. Retention windows differ by plan tier.",
+    todo: "TODO(policy): confirm exact retention windows per plan.",
+  },
+  {
+    q: "How does refund eligibility work?",
+    a: "Refund eligibility depends on service term, payment timing, and account standing. See the refund policy page for full context.",
+  },
+  {
+    q: "How do billing and renewals work?",
+    a: "You can select monthly or annual billing. Intro pricing may apply to the first term, and renewal pricing is shown for USD plans.",
+  },
+  {
+    q: "Is SSL included on plans?",
+    a: "Yes. SSL is included and provisioned as part of managed hosting setup.",
+  },
+  {
+    q: "How fast is support response?",
+    a: "We aim to respond as quickly as possible, with priority based on issue severity and service impact.",
+  },
+];
+
 export default function HomePage() {
   return (
     <>
@@ -33,195 +157,198 @@ export default function HomePage() {
       <section className="hero" aria-labelledby="hero-title">
         <div className="container">
           <div className="hero-shell">
-            <div>
-              <span className="pill">Managed Hosting Platform</span>
-              <h1 id="hero-title">Managed web hosting for businesses that need fast setup, secure billing, and real support.</h1>
-              <p>Launch and manage websites with SSL, backups, monitoring, and a control panel that keeps hosting simple.</p>
-              <div className="hero-actions">
-                <Link className="btn btn-primary" href="/pricing/">Compare Plans</Link>
-                <Link className="btn btn-secondary" href="/support/">Talk to Support</Link>
+            <div className="hero-grid">
+              <div>
+                <span className="pill">Managed Hosting Platform</span>
+                <h1 id="hero-title">Managed web hosting for businesses that need fast setup, secure billing, and real support.</h1>
+                <p>Launch and manage websites with SSL, backups, monitoring, and a control panel that keeps hosting simple for Nigerian businesses and growing teams.</p>
+
+                <div className="hero-actions">
+                  <Link className="btn btn-primary" href="/pricing/">Compare Plans</Link>
+                  <Link className="btn btn-secondary" href="/#included">See What&apos;s Included</Link>
+                </div>
+
+                <div className="hero-trustline" aria-label="Core trust signals">
+                  <span className="trust-chip"><ShieldCheck className="icon-dot" aria-hidden="true" /> SSL included</span>
+                  <span className="trust-chip"><DatabaseBackup className="icon-dot" aria-hidden="true" /> Automatic backups</span>
+                  <span className="trust-chip"><MonitorCheck className="icon-dot" aria-hidden="true" /> Monitored services</span>
+                  <span className="trust-chip"><CreditCard className="icon-dot" aria-hidden="true" /> Secure billing</span>
+                </div>
               </div>
-              <p className="hero-trustline">
-                <span>Secure billing</span>
-                <span>SSL included</span>
-                <span>Monitored services</span>
-                <span>Guided migration</span>
-              </p>
+
+              <aside className="hero-visual-stack" aria-label="Hosting platform preview">
+                <div className="hero-photo-wrap">
+                  <Image
+                    src="/assets/images/marketing/hero-team.jpg"
+                    alt="Developers collaborating while reviewing hosting operations"
+                    fill
+                    priority
+                    sizes="(max-width: 1080px) 100vw, 42vw"
+                    className="hero-photo"
+                  />
+                  <div className="overlay-card">
+                    <strong>Account dashboard</strong>
+                    <p>Billing, support, backups, and subscriptions in one customer portal.</p>
+                  </div>
+                </div>
+
+                <div className="hero-ui-grid">
+                  <article className="hero-ui-card">
+                    <h3>Backup status</h3>
+                    <p>Automatic snapshot workflows active.</p>
+                  </article>
+                  <article className="hero-ui-card">
+                    <h3>SSL readiness</h3>
+                    <p>HTTPS provisioning included on managed plans.</p>
+                  </article>
+                  <article className="hero-ui-card">
+                    <h3>Support routing</h3>
+                    <p>Sales, billing, and technical queues separated.</p>
+                  </article>
+                </div>
+              </aside>
             </div>
-
-            <aside className="hero-visual" aria-label="Product preview mockup">
-              <div className="mock-panel">
-                <div className="mock-top">
-                  <p className="mock-title">Hosting Operations Dashboard</p>
-                  <span className="mock-pill">All systems monitored</span>
-                </div>
-
-                <div className="mock-stat-grid">
-                  <div className="mock-stat">
-                    <strong>99.95%</strong>
-                    <span>Uptime trend</span>
-                  </div>
-                  <div className="mock-stat">
-                    <strong>6 mins</strong>
-                    <span>Avg support first response*</span>
-                  </div>
-                  <div className="mock-stat">
-                    <strong>Daily</strong>
-                    <span>Backup automation</span>
-                  </div>
-                </div>
-
-                <div className="mock-chart">
-                  <h3>Performance trend (last 8 checks)</h3>
-                  <div className="mock-bars" aria-hidden="true">
-                    <span style={{ height: "38%" }}></span>
-                    <span style={{ height: "54%" }}></span>
-                    <span style={{ height: "61%" }}></span>
-                    <span style={{ height: "48%" }}></span>
-                    <span style={{ height: "68%" }}></span>
-                    <span style={{ height: "74%" }}></span>
-                    <span style={{ height: "82%" }}></span>
-                    <span style={{ height: "88%" }}></span>
-                  </div>
-                </div>
-
-                <div className="mock-cards">
-                  <article className="mock-card">
-                    <h4>Deploy Queue</h4>
-                    <p>Website setup in progress: 1</p>
-                  </article>
-                  <article className="mock-card">
-                    <h4>Billing</h4>
-                    <p>Next invoice cycle synchronized</p>
-                  </article>
-                  <article className="mock-card">
-                    <h4>SSL</h4>
-                    <p>Certificates active and monitored</p>
-                  </article>
-                </div>
-              </div>
-            </aside>
           </div>
-        </div>
-      </section>
 
-      <section className="section-muted" aria-labelledby="trust-strip-title">
-        <div className="container">
-          <h2 id="trust-strip-title" className="section-title">Built for trust and predictable operations</h2>
-          <p className="section-subtitle">No fake logos. Just practical signals customers care about before buying hosting.</p>
-
-          <div className="trust-strip" role="list">
-            <article className="trust-item" role="listitem">
-              <span className="trust-icon" aria-hidden="true">BILL</span>
-              <strong>Secure billing workflows</strong>
-              <span>Plan-driven checkout and account billing visibility.</span>
+          <div className="kpi-row" aria-label="Service credibility highlights">
+            <article className="kpi-card">
+              <div className="kpi-line"><strong>NGN + USD</strong><span className="kpi-icon"><Banknote /></span></div>
+              <p>Local and international billing options.</p>
             </article>
-            <article className="trust-item" role="listitem">
-              <span className="trust-icon" aria-hidden="true">SSL</span>
-              <strong>SSL included</strong>
-              <span>TLS setup is included as part of managed hosting.</span>
+            <article className="kpi-card">
+              <div className="kpi-line"><strong>SSL Included</strong><span className="kpi-icon"><ShieldCheck /></span></div>
+              <p>HTTPS setup included on managed plans.</p>
             </article>
-            <article className="trust-item" role="listitem">
-              <span className="trust-icon" aria-hidden="true">MON</span>
-              <strong>Monitored services</strong>
-              <span>Platform health and incidents are tracked with status visibility.</span>
+            <article className="kpi-card">
+              <div className="kpi-line"><strong>Guided Migration</strong><span className="kpi-icon"><Handshake /></span></div>
+              <p>Structured migration checklist and verification.</p>
             </article>
-            <article className="trust-item" role="listitem">
-              <span className="trust-icon" aria-hidden="true">MIG</span>
-              <strong>Guided migration</strong>
-              <span>Structured migration process with practical support guidance.</span>
+            <article className="kpi-card">
+              <div className="kpi-line"><strong>Portal Access</strong><span className="kpi-icon"><Layers3 /></span></div>
+              <p>One account area for billing and support.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section aria-labelledby="features-title">
+      <section className="section-muted" aria-labelledby="proof-title">
         <div className="container">
-          <h2 id="features-title" className="section-title">Core platform capabilities</h2>
-          <p className="section-subtitle">Visual feature blocks designed for clarity so buyers can quickly understand what they get.</p>
+          <h2 id="proof-title" className="section-title">Trust signals built for real buying decisions</h2>
+          <p className="section-subtitle">Everything below is based on current platform capabilities and support workflows.</p>
+
+          <div className="proof-strip">
+            {proofCards.map((item) => (
+              <article key={item.title} className="proof-card">
+                <span className="trust-icon" aria-hidden="true"><item.icon /></span>
+                <strong>{item.title}</strong>
+                <span>{item.body}</span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="included" aria-labelledby="features-title">
+        <div className="container">
+          <h2 id="features-title" className="section-title">What you get after signup</h2>
+          <p className="section-subtitle">A managed platform shaped for developers, agencies, startups, and small businesses running production sites.</p>
 
           <div className="feature-grid">
-            <article className="feature-card">
-              <span className="feature-icon" aria-hidden="true">SET</span>
-              <h3>Fast onboarding</h3>
-              <p>Provision hosting quickly and start deployment with guided setup paths.</p>
-              <p className="link-row"><Link className="text-link" href="/migrations/">See migration flow</Link></p>
-            </article>
-            <article className="feature-card">
-              <span className="feature-icon" aria-hidden="true">PAY</span>
-              <h3>Secure billing</h3>
-              <p>Billing cycles, pricing visibility, and subscription control in one place.</p>
-              <p className="link-row"><Link className="text-link" href="/pricing/">Review pricing details</Link></p>
-            </article>
-            <article className="feature-card">
-              <span className="feature-icon" aria-hidden="true">SSL</span>
-              <h3>SSL and security controls</h3>
-              <p>SSL provisioning and account protections integrated into managed operations.</p>
-              <p className="link-row"><Link className="text-link" href="/security/">Explore security page</Link></p>
-            </article>
-            <article className="feature-card">
-              <span className="feature-icon" aria-hidden="true">BKP</span>
-              <h3>Automatic backups</h3>
-              <p>Backups run automatically with retention determined by active plan scope.</p>
-              <p className="link-row"><Link className="text-link" href="/backups/">Read backup policy</Link></p>
-            </article>
-            <article className="feature-card">
-              <span className="feature-icon" aria-hidden="true">SUP</span>
-              <h3>Support operations</h3>
-              <p>Issue response prioritizes severity so urgent production issues are escalated.</p>
-              <p className="link-row"><Link className="text-link" href="/support/">Open support resources</Link></p>
-            </article>
-            <article className="feature-card">
-              <span className="feature-icon" aria-hidden="true">STS</span>
-              <h3>Status visibility</h3>
-              <p>Service monitoring cues and status communication for operational confidence.</p>
-              <p className="link-row"><Link className="text-link" href="/status/">View service status</Link></p>
-            </article>
+            {features.map((feature) => (
+              <article key={feature.title} className="feature-card">
+                <span className="feature-icon" aria-hidden="true"><feature.icon /></span>
+                <h3>{feature.title}</h3>
+                <p>{feature.body}</p>
+                <p className="link-row"><Link className="text-link" href={feature.href}>{feature.cta}</Link></p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
       <section id="plans" className="section-muted" aria-labelledby="plans-title">
         <div className="container">
-          <h2 id="plans-title" className="section-title">Pricing that feels clear, not cluttered</h2>
-          <p className="section-subtitle">Toggle currency and billing cycle instantly. Cards come first for decision speed, with a comparison table below for deeper checks.</p>
+          <h2 id="plans-title" className="section-title">Pricing designed for confident decisions</h2>
+          <p className="section-subtitle">Cards for quick plan choice, comparison table for deeper evaluation, and renewal visibility where applicable.</p>
           <PricingSection showDetailsLink />
         </div>
       </section>
 
-      <section aria-labelledby="highlights-title">
+      <section aria-labelledby="why-title">
         <div className="container">
-          <h2 id="highlights-title" className="section-title">Migration, backups, and security workflow</h2>
-          <p className="section-subtitle">A visual process section so this does not read like plain documentation.</p>
+          <h2 id="why-title" className="section-title">Why teams choose Continental Trust</h2>
+          <p className="section-subtitle">Built for practical hosting outcomes: faster launch, less billing friction, and clearer support escalation.</p>
 
-          <div className="highlights-grid">
+          <div className="why-grid">
+            <article className="reason-card">
+              <span className="reason-icon" aria-hidden="true"><BadgeCheck /></span>
+              <h3>Transparent billing and renewals</h3>
+              <p>Plan inclusions and billing cycle behavior are visible before checkout, with renewal context available for USD plans.</p>
+            </article>
+            <article className="reason-card">
+              <span className="reason-icon" aria-hidden="true"><Layers3 /></span>
+              <h3>One portal for account operations</h3>
+              <p>Customers manage subscriptions, billing, and support interactions from a single account experience.</p>
+            </article>
+            <article className="reason-card">
+              <span className="reason-icon" aria-hidden="true"><MonitorCheck /></span>
+              <h3>Operational support mindset</h3>
+              <p>Issue routing prioritizes production impact so critical incidents are escalated quickly.</p>
+            </article>
+            <article className="reason-card">
+              <span className="reason-icon" aria-hidden="true"><Globe /></span>
+              <h3>Local relevance, global readiness</h3>
+              <p>NGN pricing support, local-friendly communication, and infrastructure suited to global traffic needs.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-muted" aria-labelledby="workflow-title">
+        <div className="container">
+          <h2 id="workflow-title" className="section-title">Migration, security, and backup workflow</h2>
+          <p className="section-subtitle">Clear process coverage from pre-migration planning to ongoing protection and recovery.</p>
+
+          <div className="page-split">
             <article className="timeline-card">
-              <h3>Migration timeline</h3>
+              <h3>Migration process</h3>
               <ol className="timeline">
-                <li><strong>Scope and access review:</strong> credentials, DNS, and app requirements are validated.</li>
-                <li><strong>Transfer and verification:</strong> data and configuration are migrated and tested.</li>
-                <li><strong>Cutover and monitoring:</strong> DNS switch with post-cutover checks and support follow-up.</li>
+                <li><strong>Discovery:</strong> account scope, DNS dependencies, and app requirements are reviewed.</li>
+                <li><strong>Transfer and validation:</strong> files, databases, and critical functions are tested before cutover.</li>
+                <li><strong>Go-live and monitoring:</strong> DNS switch and post-launch checks to reduce risk.</li>
               </ol>
-              <p className="link-row"><Link className="text-link" href="/migrations/">Most standard migrations complete in 24-72 hours.</Link></p>
+
+              <div className="badge-row">
+                <span className="badge"><CheckCircle2 size={14} /> SSL setup</span>
+                <span className="badge"><DatabaseBackup size={14} /> Backup checks</span>
+                <span className="badge"><Headset size={14} /> Support escalation</span>
+              </div>
+
+              <p className="link-row"><Link className="text-link" href="/migrations/">Start a migration request</Link></p>
             </article>
 
-            <div className="cue-grid">
-              <article className="cue-card">
-                <h4>Backups</h4>
-                <p>Automatic backups with retention based on active plan scope.</p>
-                <p className="link-row"><Link className="text-link" href="/backups/">Backup details</Link></p>
-              </article>
-              <article className="cue-card">
-                <h4>Security and SSL</h4>
-                <p>SSL included with monitoring and account-level protections.</p>
-                <p className="link-row"><Link className="text-link" href="/security/">Security controls</Link></p>
-              </article>
-              <article className="cue-card">
-                <h4>Support visibility</h4>
-                <p>Severity-based response with clear escalation for critical issues.</p>
-                <p className="link-row"><Link className="text-link" href="/support/">Support channels</Link></p>
-              </article>
+            <div className="media-card">
+              <Image
+                src="/assets/images/marketing/migration-workflow.jpg"
+                alt="Team reviewing migration and deployment workflow"
+                width={1200}
+                height={800}
+                sizes="(max-width: 1080px) 100vw, 45vw"
+              />
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="proof-ready-title">
+        <div className="container">
+          <h2 id="proof-ready-title" className="section-title">Customer proof and outcomes</h2>
+          <p className="section-subtitle">This block is intentionally ready for verified testimonials and case studies.</p>
+
+          <div className="testimonial-ready">
+            <h3>Proof section ready for publishing</h3>
+            <p>Add verified customer quotes, measurable outcomes, and approved logos here once available.</p>
+            {/* TODO(proof): replace with real customer quotes and approved attribution. */}
           </div>
         </div>
       </section>
@@ -229,38 +356,16 @@ export default function HomePage() {
       <section id="faq" className="section-muted" aria-labelledby="faq-title">
         <div className="container">
           <h2 id="faq-title" className="section-title">Frequently asked questions</h2>
-          <p className="section-subtitle">Practical answers, not placeholder copy.</p>
+          <p className="section-subtitle">Straight answers to the questions buyers ask before moving production workloads.</p>
 
           <div className="faq-list">
-            <details>
-              <summary>How long does migration take?</summary>
-              <p>Most standard website migrations are completed within 24 to 72 hours, depending on the size and complexity of the site.</p>
-            </details>
-            <details>
-              <summary>What is your backup retention policy?</summary>
-              <p>Backups are performed automatically and retained based on the active hosting plan.</p>
-              {/* TODO(policy): Confirm and publish exact backup retention periods per plan. */}
-            </details>
-            <details>
-              <summary>What is your refund policy?</summary>
-              <p>
-                Refund eligibility depends on the service term, payment timing, and account standing. A plain-language summary is available on the{" "}
-                <Link className="text-link" href="/refunds/">refund policy page</Link>.
-              </p>
-              {/* TODO(legal): Confirm final refund wording with legal/business policy owner. */}
-            </details>
-            <details>
-              <summary>How does billing work?</summary>
-              <p>You can choose monthly or annual billing. Intro pricing may apply to the first term, and renewals follow the applicable standard rate. Customers manage subscriptions and invoices in the account billing area.</p>
-            </details>
-            <details>
-              <summary>Is SSL included?</summary>
-              <p>Yes. Free SSL is included and provisioned as part of the managed hosting setup.</p>
-            </details>
-            <details>
-              <summary>How fast is support response?</summary>
-              <p>We aim to respond as quickly as possible, with priority based on issue severity and service impact.</p>
-            </details>
+            {faqItems.map((item) => (
+              <details key={item.q}>
+                <summary>{item.q}</summary>
+                <p>{item.a}</p>
+                {item.todo ? <p className="form-note">{item.todo}</p> : null}
+              </details>
+            ))}
           </div>
         </div>
       </section>
@@ -269,12 +374,12 @@ export default function HomePage() {
         <div className="container">
           <div className="final-cta">
             <div>
-              <h2>Ready to launch with managed hosting?</h2>
-              <p>Compare plans, choose billing preference, and start with secure onboarding and real support visibility.</p>
+              <h2>Ready to pick the right hosting setup?</h2>
+              <p>Compare plans, review what is included, and get help choosing the right setup for your workload.</p>
             </div>
             <div className="hero-actions">
-              <Link className="btn btn-primary" href="/pricing/">Compare Plans</Link>
-              <Link className="btn btn-outline" href="/contact/">Talk to Team</Link>
+              <Link className="btn btn-primary" href="/pricing/">Compare hosting plans</Link>
+              <Link className="btn btn-outline" href="/contact/">Talk through your setup</Link>
             </div>
           </div>
         </div>

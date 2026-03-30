@@ -13,6 +13,12 @@ export const metadata = {
     template: `%s | ${BRAND}`,
   },
   description: "Fast, secure managed hosting with SSL, backups, monitoring, and responsive support for growing businesses.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+  },
   openGraph: {
     type: "website",
     siteName: BRAND,
@@ -21,7 +27,7 @@ export const metadata = {
     url: BASE_URL,
     images: [
       {
-        url: "https://continentaltrustonline.online/images/hero/banner-image.png",
+        url: "/assets/images/marketing/hero-team.jpg",
       },
     ],
   },
@@ -29,7 +35,7 @@ export const metadata = {
     card: "summary_large_image",
     title: `Managed Web Hosting for Businesses | ${BRAND}`,
     description: "Fast, secure managed hosting with SSL, backups, monitoring, and responsive support for growing businesses.",
-    images: ["https://continentaltrustonline.online/images/hero/banner-image.png"],
+    images: ["/assets/images/marketing/hero-team.jpg"],
   },
   alternates: {
     canonical: "/",
