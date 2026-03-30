@@ -317,8 +317,14 @@ a.btn {
   z-index: 1;
   display: grid;
   grid-template-columns: 1.04fr 0.96fr;
-  gap: 1.25rem;
-  align-items: center;
+  gap: 1.6rem;
+  align-items: start;
+}
+
+.hero-copy {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
 }
 
 .hero-shell::before {
@@ -351,24 +357,30 @@ a.btn {
 .hero h1 {
   margin: 0;
   font-size: clamp(2rem, 4.6vw, 3.35rem);
-  max-width: 15ch;
+  max-width: 14ch;
+  line-height: 1.14;
 }
 
 .hero p {
-  margin: 0.95rem 0 1.2rem;
+  margin: 0;
   color: var(--ink-700);
   max-width: 56ch;
   font-size: clamp(1rem, 1.55vw, 1.08rem);
+}
+
+.hero-lead {
+  max-width: 48ch;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.7rem;
+  margin-top: 0.15rem;
 }
 
 .hero-trustline {
-  margin-top: 1rem;
+  margin-top: 0.1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;

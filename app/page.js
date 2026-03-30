@@ -158,10 +158,10 @@ export default function HomePage() {
         <div className="container">
           <div className="hero-shell">
             <div className="hero-grid">
-              <div>
+              <div className="hero-copy">
                 <span className="pill">Managed Hosting Platform</span>
                 <h1 id="hero-title">Managed web hosting for businesses that need fast setup, secure billing, and real support.</h1>
-                <p>Launch and manage websites with SSL, backups, monitoring, and a control panel that keeps hosting simple for Nigerian businesses and growing teams.</p>
+                <p className="hero-lead">Launch and manage websites with SSL, backups, monitoring, and a control panel that keeps hosting simple.</p>
 
                 <div className="hero-actions">
                   <Link className="btn btn-primary" href="/pricing/">Compare Plans</Link>
@@ -171,7 +171,6 @@ export default function HomePage() {
                 <div className="hero-trustline" aria-label="Core trust signals">
                   <span className="trust-chip"><ShieldCheck className="icon-dot" aria-hidden="true" /> SSL included</span>
                   <span className="trust-chip"><DatabaseBackup className="icon-dot" aria-hidden="true" /> Automatic backups</span>
-                  <span className="trust-chip"><MonitorCheck className="icon-dot" aria-hidden="true" /> Monitored services</span>
                   <span className="trust-chip"><CreditCard className="icon-dot" aria-hidden="true" /> Secure billing</span>
                 </div>
               </div>
