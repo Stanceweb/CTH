@@ -1,18 +1,24 @@
-# Next.js
-node_modules/
-.next/
-out/
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
 
-# Local env
-.env
-.env.local
-.env.*.local
-
-# Generated backups on VPS
-*.bak_*
-.backup_*/
+# Node dependencies
+node_modules
 
 # Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Local env files
+.env
+.env.*
+!.env.example
