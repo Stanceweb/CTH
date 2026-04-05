@@ -1,5 +1,24 @@
 <script setup lang="ts">
 import { homeContent } from '~/content/site'
+
+const includedHighlights = [
+  {
+    label: 'Free SSL and automated backups',
+    icon: 'i-ph-shield-check',
+  },
+  {
+    label: 'Migration support in 24 to 72 hours',
+    icon: 'i-ph-arrows-left-right',
+  },
+  {
+    label: 'Secure billing and account controls',
+    icon: 'i-ph-credit-card',
+  },
+  {
+    label: 'NGN and USD friendly plans',
+    icon: 'i-ph-currency-circle-dollar',
+  },
+]
 </script>
 
 <template>
@@ -33,6 +52,26 @@ import { homeContent } from '~/content/site'
             {{ item.description }}
           </p>
         </article>
+      </div>
+
+      <div class="mx-a w-full max-w-5xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-fg-muted">
+          What&apos;s included
+        </p>
+        <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <article
+            v-for="item in includedHighlights"
+            :key="item.label"
+            class="flex items-start gap-3 rounded-2xl border border-border bg-bg-surface p-4"
+          >
+            <span class="mt-0.5 flex size-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span :class="['text-lg', item.icon]"></span>
+            </span>
+            <p class="text-sm text-fg">
+              {{ item.label }}
+            </p>
+          </article>
+        </div>
       </div>
     </div>
   </section>

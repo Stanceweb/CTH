@@ -125,7 +125,7 @@ export const homeContent = {
     eyebrow: 'WEB HOSTING PLATFORM',
     title: 'Launch fast, secure hosting with a control panel built for growth.',
     description:
-      'Managed hosting with SSL, backups, monitoring, and practical support for growing teams.',
+      'Provision reliable hosting in minutes with clear billing and responsive support when you need it.',
     primaryCta: { label: 'Create your account', to: site.signUpUrl },
     secondaryCta: { label: 'See plans', to: site.comparePlansUrl },
     image: '/images/hero-hosting-person-small.jpg',
@@ -187,7 +187,7 @@ export const homeContent = {
     {
       title: 'SLA Monitoring',
       description: 'Uptime alerts and status transparency',
-      icon: 'i-ph-signal',
+      icon: 'i-ph-activity',
     },
   ],
   reliability: {
@@ -214,9 +214,9 @@ export const homeContent = {
         'Yes. SSL and backups are included in the managed workflow.',
     },
     {
-      question: 'How does billing and verification work?',
+      question: 'How does billing and plan activation work?',
       answer:
-        'Billing is handled through the account flow and official support channels, with payment instructions shown during checkout.',
+        'After signup, your selected plan is prepared for activation. NGN checkout can complete in-flow, and if manual review is needed the team guides the next step.',
     },
   ],
   testimonials: [
@@ -398,18 +398,23 @@ export const pageCopy = {
     support: {
       title: 'Support',
       description:
-        'Support is organized around operational severity, with routes for billing, migration, uptime, and account issues.',
+        'Support is organized by request type so sales, billing, migration, and technical issues reach the right queue quickly.',
       sections: [
         {
-          title: 'How support works',
+          title: 'Choose the right support route',
           body:
-            'Use the support channel for issue reporting, then triage happens by severity and service impact.',
-          bullets: ['Migration help', 'Billing and verification', 'Uptime and reliability', 'Runtime issues'],
+            'Start with the request type so the team can triage faster and guide activation or issue resolution clearly.',
+          bullets: [
+            'Contact Sales for plan-fit and pre-purchase questions',
+            'Ask Billing for invoice, renewal, and payment clarifications',
+            'Get Technical Support for runtime, SSL, and platform issues',
+            'Request Migration Help for transfer planning and cutover',
+          ],
         },
         {
-          title: 'Contact routes',
+          title: 'What happens next',
           body:
-            'The site routes visitors to the account portal and Telegram support for direct help.',
+            'You receive guided next-step support through the account portal and business support channels. Telegram is available as optional chat support only.',
         },
       ],
     },
@@ -437,22 +442,24 @@ export const pageCopy = {
     contact: {
       title: 'Contact',
       description:
-        'Reach the team through the account portal or support channels when you need help with setup, billing, or migration.',
+        'Reach the right team quickly for sales, billing, technical support, migration help, or general inquiries.',
       sections: [
         {
-          title: 'Direct channels',
+          title: 'Business contact routes',
           body:
-            'Use the account portal for sign-in and the support channel for operational requests.',
+            'Use your request category so support can route and respond with the right next steps.',
           bullets: [
-            'Account portal for sign in and billing management',
-            'Telegram support for direct assistance',
-            'Support requests for migration and uptime issues',
+            'Contact Sales: pre-purchase guidance and plan selection',
+            'Ask Billing: invoices, renewals, and payment questions',
+            'Get Technical Support: hosting runtime and account issues',
+            'Request Migration Help: move planning and onboarding',
+            'General inquiries: info@continentaltrustonline.online',
           ],
         },
         {
-          title: 'Billing reminder',
+          title: 'Primary channels',
           body:
-            'Payments are handled through the official Telegram bot and should never be sent to personal accounts.',
+            'Use the secure account flow and official support guidance for activation and billing. Telegram can be used for optional chat follow-up, but it is not required for payment or verification.',
         },
       ],
     },

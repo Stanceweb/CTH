@@ -5,7 +5,7 @@ useHead({
     {
       name: 'description',
       content:
-        'Managed hosting with SSL, backups, monitoring, and practical support for growing teams.',
+        'Provision reliable hosting with secure billing, strong infrastructure, and responsive support for serious teams.',
     },
   ],
   link: [

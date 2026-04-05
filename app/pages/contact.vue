@@ -13,8 +13,8 @@ useHead({
     :title="pageCopy.simple.contact.title"
     :description="pageCopy.simple.contact.description"
     :sections="pageCopy.simple.contact.sections"
-    :primary-cta="{ label: 'Sign in', to: site.signInUrl }"
-    :secondary-cta="{ label: 'Open support', to: '/support' }"
-    note="Payments are handled through the official Telegram bot and should never be sent to personal accounts."
+    :primary-cta="{ label: 'Get Technical Support', to: '/support' }"
+    :secondary-cta="{ label: 'Open Account Portal', to: site.signInUrl }"
+    note="Use one clear route: Contact Sales, Ask Billing, Get Technical Support, or Request Migration Help. Telegram remains optional support only."
   />
 </template>

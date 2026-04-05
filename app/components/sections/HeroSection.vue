@@ -3,8 +3,8 @@ import { homeContent, site } from '~/content/site'
 </script>
 
 <template>
-  <section class="relative overflow-hidden pt24 sm:pt28 lg:pt36">
-    <div class="mx-auto flex w-full flex-col gap-12 px5 sm-px10 md-px12 lg:max-w-7xl lg:flex-row lg:gap-16 lg:px5">
+  <section class="relative overflow-hidden">
+    <div class="mx-auto flex min-h-screen min-h-[100svh] w-full flex-col justify-center gap-12 px5 pb12 pt24 sm-px10 sm:pb12 sm:pt28 md-px12 lg:max-w-7xl lg:flex-row lg:items-center lg:gap-16 lg:px5 lg:pb16 lg:pt32">
       <div class="absolute inset-y-0 right-0 hidden wfull lg:block lg:w-1/2">
         <span class="absolute right-4 bottom-12 size-24 rd-3xl bg-primary blur-xl op40"></span>
       </div>
@@ -13,24 +13,14 @@ import { homeContent, site } from '~/content/site'
       ></span>
 
       <div
-        class="relative order-2 mx-a flex max-w-3xl flex-col items-center text-center lg:order-1 lg:mx-0 lg:flex-1 lg:max-w-none lg:items-start lg:text-left lg:py7 xl:py8 lg:w-1/2"
+        class="relative order-2 mx-a flex max-w-3xl flex-col items-center text-center lg:order-1 lg:mx-0 lg:flex-1 lg:max-w-none lg:items-start lg:text-left lg:py5 xl:py6 lg:w-1/2"
       >
-        <span class="ui-size-sm rd-xl ui-outline ui-outline-gray">
-          {{ homeContent.hero.eyebrow }}
-        </span>
-        <h1 class="mt-8 text-3xl/tight font-bold text-fg-title sm-text-4xl/tight md-text-5xl/tight xl-text-6xl/tight">
+        <h1 class="mt-0 text-3xl/tight font-bold text-fg-title sm-text-4xl/tight md-text-5xl/tight xl-text-6xl/tight">
           {{ homeContent.hero.title }}
         </h1>
-        <p class="mt8 max-w-md text-fg">
+        <p class="mt7 max-w-xl text-base text-fg sm:text-lg">
           {{ homeContent.hero.description }}
         </p>
-
-        <ul class="mt-8 grid max-w-md gap-3 text-sm text-fg-muted sm:grid-cols-2 lg:max-w-none">
-          <li class="rounded-xl border border-border bg-bg-surface px4 py3">Free SSL and automated backups</li>
-          <li class="rounded-xl border border-border bg-bg-surface px4 py3">Migration support in 24 to 72 hours</li>
-          <li class="rounded-xl border border-border bg-bg-surface px4 py3">Secure billing and account controls</li>
-          <li class="rounded-xl border border-border bg-bg-surface px4 py3">NGN and USD friendly plans</li>
-        </ul>
 
         <div class="mt10 flex w-full flex-wrap items-center justify-center gap-3 lg:justify-start">
           <a

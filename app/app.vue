@@ -1,6 +1,23 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 
+const zohoWidgetUrl = 'https://salesiq.zohopublic.com/widget?wc=siq87dbae343a4d60e77b60846805f4a6293a9ae448021831060240d77cc90fe883'
+
+useHead({
+  script: [
+    {
+      key: 'zoho-salesiq-init',
+      children: 'window.$zoho=window.$zoho||{};$zoho.salesiq=$zoho.salesiq||{};$zoho.salesiq.ready=function(){try{if($zoho.salesiq.chatwindow&&$zoho.salesiq.chatwindow.visible){$zoho.salesiq.chatwindow.visible("hide")}}catch(e){}try{if($zoho.salesiq.floatwindow&&$zoho.salesiq.floatwindow.visible){$zoho.salesiq.floatwindow.visible("show")}}catch(e){}}',
+    },
+    {
+      key: 'zoho-salesiq-widget',
+      id: 'zsiqscript',
+      src: zohoWidgetUrl,
+      defer: true,
+    },
+  ],
+})
+
 const preloaderVisible = ref(true)
 const preloaderLeaving = ref(false)
 

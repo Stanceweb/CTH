@@ -1,7 +1,13 @@
 <script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { mainNavLinks, site } from '~/content/site'
 
 const navIsOpen = useState('navIsOpen', () => false)
+const headerSolid = ref(false)
+
+function syncHeaderState() {
+  headerSolid.value = window.scrollY > 10
+}
 
 function toggleNavBar() {
   navIsOpen.value = !navIsOpen.value
@@ -12,24 +18,38 @@ function closeNavBar() {
   navIsOpen.value = false
   document.body.classList.remove('overflow-hidden')
 }
+
+onMounted(() => {
+  syncHeaderState()
+  window.addEventListener('scroll', syncHeaderState, { passive: true })
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', syncHeaderState)
+})
 </script>
 
 <template>
-  <header class="absolute inset-x-0 top-0 z50 py4 sm:py6">
+  <header
+    class="fixed inset-x-0 top-0 z50 py4 sm:py6 transition-all duration-300"
+    :class="headerSolid || navIsOpen ? 'bg-bg/80 backdrop-blur-xl border-b border-border/70 shadow-sm' : 'bg-transparent'"
+  >
     <div class="w-full px5 sm-px10 md-px12 lg-px5 mx-a max-w-7xl">
       <nav class="relative flex w-full items-center justify-between gap-3 sm:gap-6">
         <NuxtLink to="/" class="relative flex min-w-0 items-center">
-          <ElementBrandLogo compact />
+          <ElementBrandLogo compact logo-only />
         </NuxtLink>
 
         <div
           aria-hidden="true"
-          class="fixed inset-0 bg-neutral-8/40 backdrop-blur-xl backdrop-filter lg:!hidden"
+          class="fixed inset-0 z40 bg-neutral-8/40 backdrop-blur-xl backdrop-filter lg:!hidden"
           :class="navIsOpen ? 'flex' : 'hidden'"
+          @click="closeNavBar"
         />
 
         <div
-          class="absolute top-full max-h-[calc(100vh-5rem)] overflow-y-auto flex w-full flex-col gap-x-4 gap-y-6 bg-bg duration-300 ease-linear lg:relative lg:max-h-none lg:flex-row lg:items-center lg:justify-between lg:bg-transparent"
+          id="mobile-nav"
+          class="absolute top-full z50 max-h-[calc(100vh-5rem)] overflow-y-auto flex w-full flex-col gap-x-4 gap-y-6 bg-bg duration-300 ease-linear border border-border shadow-lg lg:relative lg:z-auto lg:top-auto lg:max-h-none lg:overflow-visible lg:flex-row lg:items-center lg:justify-between lg:bg-transparent lg:border-0 lg:shadow-none"
           :class="navIsOpen ? 'translate-y-0 visible op-100' : 'translate-y-10 invisible op-0 lg:visible lg:op-100 lg:translate-y-0'"
         >
           <ul
@@ -68,12 +88,12 @@ function closeNavBar() {
           </a>
           <button
             aria-label="toggle navbar"
-            class="lg-hidden lg:invisible relative flex h-auto w8 flex-col bg-transparent outline-none"
+            :aria-expanded="navIsOpen ? 'true' : 'false'"
+            aria-controls="mobile-nav"
+            class="lg-hidden lg:invisible relative inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-bg-surface text-fg-title outline-none"
             @click="toggleNavBar()"
           >
-            <span class="w6 h0.5 rd-full transition-all duration-300 ease-linear" :class="navIsOpen ? 'translate-y-1.5 rotate-40' : ''"></span>
-            <span class="w6 origin-center mt1 h0.5 rd-ful transition-all duration-300 ease-linear" :class="navIsOpen ? 'op-0 scale-x-0' : ''"></span>
-            <span class="w6 mt1 h0.5 rd-ful transition-all duration-300 ease-linear" :class="navIsOpen ? '-translate-y-1.5 -rotate-40' : ''"></span>
+            <span class="flex text-xl transition-transform duration-300 ease-linear" :class="navIsOpen ? 'i-ph-x-bold rotate-90' : 'i-ph-list-bold'"></span>
           </button>
         </div>
       </nav>

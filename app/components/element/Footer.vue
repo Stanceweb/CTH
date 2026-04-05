@@ -28,11 +28,17 @@ import { footerGroups, site } from '~/content/site'
         </div>
         <div class="flex items-center space-x-2">
           <span i-carbon-phone flex text-xl></span>
-          <span>Support through the account portal</span>
+          <span>Support via portal or business email</span>
         </div>
         <div class="flex items-center space-x-2">
           <span i-carbon-email flex text-2xl></span>
-          <span>info@continentaltrustonline.online</span>
+          <a
+            href="mailto:info@continentaltrustonline.online"
+            class="transition-colors hover:text-primary"
+            aria-label="Email Continental Trust Hosting"
+          >
+            info@continentaltrustonline.online
+          </a>
         </div>
       </div>
 
@@ -80,14 +86,19 @@ import { footerGroups, site } from '~/content/site'
           <p>&copy; 2026 Continental Trust Hosting. All rights reserved.</p>
         </div>
         <div class="flex w-full justify-center gap-3 sm:justify-end">
-          <a :href="site.telegramSupportUrl" aria-label="Telegram support" class="transition-colors hover:text-primary">
+          <a
+            :href="site.telegramSupportUrl"
+            aria-label="Telegram chat support (optional)"
+            title="Telegram chat support (optional)"
+            class="transition-colors hover:text-primary"
+          >
             <span i-carbon-chat text-2xl flex></span>
           </a>
           <NuxtLink to="/support" aria-label="Support" class="transition-colors hover:text-primary">
             <span i-carbon-headset text-2xl flex></span>
           </NuxtLink>
           <NuxtLink to="/status" aria-label="Status" class="transition-colors hover:text-primary">
-            <span i-carbon-signal-strength-3 text-2xl flex></span>
+            <span i-carbon-signal-strength text-2xl flex></span>
           </NuxtLink>
         </div>
       </div>
