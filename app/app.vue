@@ -4,6 +4,10 @@ import { onMounted, ref } from 'vue'
 const zohoWidgetUrl = 'https://salesiq.zohopublic.com/widget?wc=siq87dbae343a4d60e77b60846805f4a6293a9ae448021831060240d77cc90fe883'
 
 useHead({
+  link: [
+    { rel: 'icon', type: 'image/svg+xml', href: '/cth-icon.svg' },
+    { rel: 'alternate icon', type: 'image/x-icon', href: '/favicon.ico' },
+  ],
   script: [
     {
       key: 'zoho-salesiq-init',

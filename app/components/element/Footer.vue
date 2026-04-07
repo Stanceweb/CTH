@@ -18,7 +18,7 @@ import { footerGroups, site } from '~/content/site'
             <ElementBrandLogo :show-tagline="false" />
           </NuxtLink>
           <p class="max-w-xs text-sm">
-            Managed hosting with secure billing, practical setup support, and stable operations.
+            {{ site.tagline }}
           </p>
         </div>
 

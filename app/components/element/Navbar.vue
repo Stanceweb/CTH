@@ -49,16 +49,16 @@ onBeforeUnmount(() => {
 
         <div
           id="mobile-nav"
-          class="absolute top-full z50 max-h-[calc(100vh-5rem)] overflow-y-auto flex w-full flex-col gap-x-4 gap-y-6 bg-bg duration-300 ease-linear border border-border shadow-lg lg:relative lg:z-auto lg:top-auto lg:max-h-none lg:overflow-visible lg:flex-row lg:items-center lg:justify-between lg:bg-transparent lg:border-0 lg:shadow-none"
+          class="absolute top-full z50 max-h-[calc(100vh-5rem)] overflow-y-auto flex w-full flex-col gap-x-4 gap-y-6 bg-bg duration-300 ease-linear border border-border shadow-lg lg:relative lg:z-auto lg:top-auto lg:mx-6 lg:max-h-none lg:w-auto lg:flex-1 lg:overflow-visible lg:flex-row lg:items-center lg:justify-center lg:bg-transparent lg:border-0 lg:shadow-none"
           :class="navIsOpen ? 'translate-y-0 visible op-100' : 'translate-y-10 invisible op-0 lg:visible lg:op-100 lg:translate-y-0'"
         >
           <ul
-            class="w-full flex flex-col gap-x-3 gap-y-4 px-5 pt-5 text-base text-fg sm:px-6 sm:text-lg lg:flex-row lg:items-center lg:justify-center lg:px-0 lg:pt-0"
+            class="w-full flex flex-col gap-x-3 gap-y-4 px-5 pt-5 text-base text-fg sm:px-6 sm:text-lg lg:w-auto lg:flex-row lg:items-center lg:justify-start lg:flex-nowrap lg:gap-x-6 lg:px-0 lg:pt-0"
           >
             <li v-for="navItem in mainNavLinks" :key="navItem.to">
               <NuxtLink
                 :to="navItem.to"
-                class="py2 font-medium duration-300 ease-linear hover:text-primary sm:py3"
+                class="inline-flex py2 font-medium duration-300 ease-linear hover:text-primary sm:py3 lg:py-0 lg:text-sm whitespace-nowrap"
                 @click="closeNavBar"
               >
                 {{ navItem.label }}
@@ -66,7 +66,7 @@ onBeforeUnmount(() => {
             </li>
           </ul>
 
-          <div class="flex w-full items-center px5 pb-5 sm:px6 sm:pb-6 sm-w-max lg:min-w-max lg:px-0 lg:pb-0">
+          <div class="flex w-full items-center px5 pb-5 sm:px6 sm:pb-6 sm-w-max lg:hidden">
             <a
               :href="site.signInUrl"
               class="justify-center w-full sm-w-max btn btn-sm rd-md btn-outline btn-outline-gray"
@@ -81,8 +81,14 @@ onBeforeUnmount(() => {
             <ui-toggle-theme />
           </ClientOnly>
           <a
+            :href="site.signInUrl"
+            class="hidden md:inline-flex justify-center btn btn-sm rd-md btn-outline btn-outline-gray"
+          >
+            Sign In
+          </a>
+          <a
             :href="site.comparePlansUrl"
-            class="hidden sm:inline-flex justify-center btn btn-sm rd-md btn-solid btn-solid-primary text-white"
+            class="hidden xl:inline-flex justify-center btn btn-sm rd-md btn-solid btn-solid-primary text-white"
           >
             Compare Plans
           </a>

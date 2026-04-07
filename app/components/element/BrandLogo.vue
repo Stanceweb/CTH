@@ -40,7 +40,7 @@ withDefaults(
         Hosting
       </p>
       <p v-if="showTagline" class="mt-2 max-w-xs text-xs leading-relaxed text-fg-muted">
-        Managed web infrastructure for fast launches, trusted uptime, and practical support.
+        Managed hosting for businesses that need technical help, not just server space.
       </p>
     </div>
   </div>

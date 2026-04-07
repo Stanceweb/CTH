@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { homeContent, site } from '~/content/site'
+
+const secondaryCtaIsExternal = homeContent.hero.secondaryCta.to.startsWith('http')
 </script>
 
 <template>
@@ -21,6 +23,9 @@ import { homeContent, site } from '~/content/site'
         <p class="mt7 max-w-xl text-base text-fg sm:text-lg">
           {{ homeContent.hero.description }}
         </p>
+        <p class="mt4 max-w-xl text-sm text-fg-muted sm:text-base">
+          {{ homeContent.hero.supportLine }}
+        </p>
 
         <div class="mt10 flex w-full flex-wrap items-center justify-center gap-3 lg:justify-start">
           <a
@@ -29,23 +34,25 @@ import { homeContent, site } from '~/content/site'
           >
             {{ homeContent.hero.primaryCta.label }}
           </a>
-          <NuxtLink
-            :to="homeContent.hero.secondaryCta.to"
+          <a
+            :href="homeContent.hero.secondaryCta.to"
+            :target="secondaryCtaIsExternal ? '_blank' : undefined"
+            :rel="secondaryCtaIsExternal ? 'noopener noreferrer' : undefined"
             class="justify-center btn btn-lg btn-outline btn-outline-gray rd-xl text-fg"
           >
             {{ homeContent.hero.secondaryCta.label }}
-          </NuxtLink>
+          </a>
         </div>
       </div>
 
       <div class="relative order-1 mx-auto flex max-w-3xl flex-1 lg:order-2 lg:mx-0 lg:w-1/2 lg:max-w-none">
-        <div class="relative w-full overflow-hidden rd-2xl shadow-xl shadow-neutral-9/20">
+        <div class="relative w-full min-h-[300px] overflow-hidden rd-2xl shadow-xl shadow-neutral-9/20 sm:min-h-[380px] lg:min-h-[560px]">
         <img
           :src="homeContent.hero.image"
           alt="Black woman working in a server room"
           loading="eager"
           fetchpriority="high"
-          class="block aspect-[4/3] w-full object-cover object-center lg:absolute lg:inset-0 lg:h-full lg:max-h-none"
+          class="absolute inset-0 h-full w-full object-cover object-center"
         />
         <div
           class="absolute left-1/2 -bottom-6 hidden w66 -translate-x-1/2 items-center rounded-xl border b-border-strong/50 bg-bg/80 p-2 shadow-sm shadow-bg-bg-muted/40 backdrop-blur-md before:absolute before:-bottom-2 before:left-3 before:right-3 before:h-2 before:rounded-b-xl before:border before:border-b-0 before:border-border-strong/50 before:bg-bg/80 md:flex"

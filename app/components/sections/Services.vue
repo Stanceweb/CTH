@@ -7,10 +7,10 @@ import { homeContent } from '~/content/site'
     <div class="mx-auto w-full px5 sm-px10 md-px12 lg:px5 lg:max-w-7xl">
       <div class="mx-auto max-w-3xl space-y-4 text-center">
         <h2 class="text-balance text-4xl font-semibold text-fg-title lg-text-5xl">
-          Core platform capabilities.
+          What our support actually helps with.
         </h2>
         <p class="text-fg-muted">
-          Security hardening, performance, migrations, billing, support, and uptime monitoring.
+          Real technical help for deployment problems, configuration issues, and website stability concerns.
         </p>
       </div>
 
@@ -34,6 +34,10 @@ import { homeContent } from '~/content/site'
           <span class="absolute -bottom-16 -right-16 aspect-square w32 rounded-full bg-primary/10 blur-xl"></span>
         </article>
       </div>
+      <p class="mx-auto mt8 max-w-4xl text-center text-sm text-fg-muted">
+        Support is focused on hosting-related technical issues, deployment troubleshooting,
+        configuration assistance, and minor site fixes.
+      </p>
     </div>
   </section>
 </template>

@@ -1,24 +1,5 @@
 <script setup lang="ts">
 import { homeContent } from '~/content/site'
-
-const includedHighlights = [
-  {
-    label: 'Free SSL and automated backups',
-    icon: 'i-ph-shield-check',
-  },
-  {
-    label: 'Migration support in 24 to 72 hours',
-    icon: 'i-ph-arrows-left-right',
-  },
-  {
-    label: 'Secure billing and account controls',
-    icon: 'i-ph-credit-card',
-  },
-  {
-    label: 'NGN and USD friendly plans',
-    icon: 'i-ph-currency-circle-dollar',
-  },
-]
 </script>
 
 <template>
@@ -26,17 +7,17 @@ const includedHighlights = [
     <div class="mx-auto flex max-w-7xl flex-col items-start gap-10 px5 sm-px10 md-px12 lg-px5 xl-gap-14">
       <div class="mx-auto max-w-3xl space-y-3 text-center lg:mx-0 lg:text-left">
         <p class="text-sm font-semibold uppercase tracking-[0.2em] text-fg-muted">
-          about us
+          Why businesses choose us
         </p>
         <h2 class="text-3xl font-bold text-fg-title lg:text-5xl">
-          Why teams choose Continental Trust Hosting.
+          Managed hosting for teams that need technical help.
         </h2>
         <p class="text-fg-muted">
-          Launch fast with optimized stacks, secure infrastructure, and hands-on support.
+          Managed hosting for businesses that need technical help, not just server space.
         </p>
       </div>
 
-      <div class="mx-a grid max-w-5xl grid-cols-1 gap-4 rounded-3xl border border-border bg-bg-muted/70 p5 shadow-lg shadow-neutral3/50 dark-shadow-transparent sm:grid-cols-2 md:grid-cols-3 sm-p6 py6 sm-py8 md-divide-x divide-border lg-mx-0 lg-gap-12">
+      <div class="mx-a grid max-w-6xl grid-cols-1 gap-4 rounded-3xl border border-border bg-bg-muted/70 p5 shadow-lg shadow-neutral3/50 dark-shadow-transparent sm:grid-cols-2 lg:grid-cols-4 sm-p6 py6 sm-py8 lg-mx-0">
         <article
           v-for="item in homeContent.whyChoose"
           :key="item.title"
@@ -56,11 +37,11 @@ const includedHighlights = [
 
       <div class="mx-a w-full max-w-5xl">
         <p class="text-sm font-semibold uppercase tracking-[0.2em] text-fg-muted">
-          What&apos;s included
+          Premium value stack
         </p>
         <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <article
-            v-for="item in includedHighlights"
+            v-for="item in homeContent.valueStack"
             :key="item.label"
             class="flex items-start gap-3 rounded-2xl border border-border bg-bg-surface p-4"
           >

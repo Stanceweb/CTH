@@ -1,7 +1,7 @@
 export const site = {
   name: 'Continental Trust Hosting',
   shortName: 'Continental Trust Hosting',
-  tagline: 'Managed hosting with practical support, secure billing, and fast onboarding.',
+  tagline: 'Managed hosting for businesses that need technical help, not just server space.',
   signInUrl: 'https://app.continentaltrustonline.online/',
   signUpUrl: 'https://app.continentaltrustonline.online/',
   comparePlansUrl: '/pricing',
@@ -9,12 +9,12 @@ export const site = {
 }
 
 export const mainNavLinks = [
+  { label: 'About', to: '/about' },
   { label: 'Pricing', to: '/pricing' },
-  { label: 'Migrations', to: '/migrations' },
   { label: 'Security', to: '/security' },
   { label: 'Backups', to: '/backups' },
+  { label: 'Migrations', to: '/migrations' },
   { label: 'Support', to: '/support' },
-  { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ]
 
@@ -63,8 +63,10 @@ export const pricingPlans = [
       bandwidth: 'Managed traffic allocation',
       ssl: 'Free SSL',
       backups: 'Automatic backups',
-      support: 'Standard support',
-      bestFor: 'New and small business sites',
+      support: 'Standard technical support',
+      troubleshooting: 'Deployment troubleshooting and website error support',
+      community: 'Telegram community access',
+      bestFor: 'Small websites that need dependable hosting and technical help',
     },
   },
   {
@@ -82,8 +84,10 @@ export const pricingPlans = [
       bandwidth: 'Higher managed traffic allocation',
       ssl: 'Free SSL',
       backups: 'Automatic backups',
-      support: 'Priority support queue',
-      bestFor: 'Growing businesses and teams',
+      support: 'Priority technical support queue',
+      troubleshooting: 'Deployment support and configuration troubleshooting',
+      community: 'Telegram community access',
+      bestFor: 'Growing businesses that need quicker response handling',
     },
   },
   {
@@ -101,8 +105,10 @@ export const pricingPlans = [
       bandwidth: 'Highest managed traffic allocation',
       ssl: 'Free SSL',
       backups: 'Automatic backups',
-      support: 'Priority handling',
-      bestFor: 'High-growth and multi-site operations',
+      support: 'Top-priority handling and faster escalation',
+      troubleshooting: 'Advanced deployment assistance and stability troubleshooting',
+      community: 'Telegram community access',
+      bestFor: 'Serious businesses, teams, and agencies with urgent workloads',
     },
   },
 ] as const
@@ -122,33 +128,51 @@ export const pricingComparisonRows = [
 
 export const homeContent = {
   hero: {
-    eyebrow: 'WEB HOSTING PLATFORM',
-    title: 'Launch fast, secure hosting with a control panel built for growth.',
+    eyebrow: 'Managed Hosting Platform',
+    title: 'Managed Hosting with 24/7 Technical Support',
     description:
-      'Provision reliable hosting in minutes with clear billing and responsive support when you need it.',
-    primaryCta: { label: 'Create your account', to: site.signUpUrl },
-    secondaryCta: { label: 'See plans', to: site.comparePlansUrl },
+      'Hosting for businesses that need real help with deployments, website issues, SSL setup, troubleshooting, and day-to-day technical problems.',
+    supportLine:
+      'Plus access to our Telegram community for free website templates and launch resources.',
+    primaryCta: { label: 'Start Hosting', to: site.signUpUrl },
+    secondaryCta: { label: 'Join the Community', to: site.telegramSupportUrl },
     image: '/images/hero-hosting-person-small.jpg',
   },
   whyChoose: [
     {
-      title: 'Managed Hosting.',
+      title: 'Managed hosting',
       description:
-        'Launch fast with optimized stacks, automated updates, and performance tuning built in.',
+        'Managed hosting for businesses that need technical help, not just server space.',
       icon: 'i-ph-rocket-launch',
     },
     {
-      title: 'Secure Infrastructure.',
+      title: '24/7 technical support',
       description:
-        'Free SSL, DDoS protection, and daily backups keep your data protected.',
-      icon: 'i-ph-shield-check',
+        'Get practical troubleshooting and managed assistance when deployments or production issues need attention.',
+      icon: 'i-ph-headset',
     },
     {
-      title: 'Expert Support.',
+      title: 'Deployment troubleshooting',
       description:
-        'Get hands-on help with migrations, setup, and ongoing platform guidance.',
-      icon: 'i-ph-chat-centered-text',
+        'Receive help with deployment-related code issues, environment checks, and launch-day stability tasks.',
+      icon: 'i-ph-arrows-left-right',
     },
+    {
+      title: 'Configuration support',
+      description:
+        'Get guidance for SSL, DNS, email, and minor technical fixes that affect uptime and reliability.',
+      icon: 'i-ph-gear-six',
+    },
+  ],
+  valueStack: [
+    { label: 'Managed hosting', icon: 'i-ph-stack' },
+    { label: '24/7 technical support', icon: 'i-ph-headset' },
+    { label: 'Deployment troubleshooting', icon: 'i-ph-arrows-left-right' },
+    { label: 'Website error support', icon: 'i-ph-bug-beetle' },
+    { label: 'SSL, DNS, and email setup help', icon: 'i-ph-shield-check' },
+    { label: 'Automatic backups', icon: 'i-ph-database' },
+    { label: 'Access to Telegram community', icon: 'i-ph-telegram-logo' },
+    { label: 'Free templates and launch resources', icon: 'i-ph-layout' },
   ],
   trustLogos: [
     { label: 'Spotify', src: '/logos/spotify.png' },
@@ -160,46 +184,61 @@ export const homeContent = {
   ],
   capabilities: [
     {
-      title: 'Security Hardening',
-      description: 'Threat detection & response',
-      icon: 'i-ph-shield-warning',
+      title: 'Failed deployments',
+      description: 'Help troubleshooting deployment-related code and environment issues.',
+      icon: 'i-ph-warning-circle',
     },
     {
-      title: 'Performance Layer',
-      description: 'Caching, tuning, and resource scaling',
-      icon: 'i-ph-lightning',
+      title: 'Broken SSL setup',
+      description: 'Assistance issuing, renewing, or restoring HTTPS and certificate setup.',
+      icon: 'i-ph-shield-check',
     },
     {
-      title: 'Migration Tools',
-      description: 'Guided onboarding and domain cutover',
-      icon: 'i-ph-arrows-left-right',
+      title: 'DNS misconfiguration',
+      description: 'Practical fixes for DNS records, propagation, and domain routing errors.',
+      icon: 'i-ph-globe-hemisphere-west',
     },
     {
-      title: 'Billing Automation',
-      description: 'Billing & compliance',
-      icon: 'i-ph-credit-card',
+      title: 'Email setup issues',
+      description: 'Support for mailbox routing and core email configuration checks.',
+      icon: 'i-ph-envelope-simple-open',
     },
     {
-      title: 'Support Workflows',
-      description: 'Ticketing, escalation, and response SLAs',
-      icon: 'i-ph-headset',
+      title: 'Plugin or theme conflicts',
+      description: 'Help isolating update-related conflicts affecting site stability.',
+      icon: 'i-ph-puzzle-piece',
     },
     {
-      title: 'SLA Monitoring',
-      description: 'Uptime alerts and status transparency',
-      icon: 'i-ph-activity',
+      title: 'Website errors after updates',
+      description: 'Troubleshooting for runtime and configuration problems after changes.',
+      icon: 'i-ph-lifebuoy',
     },
   ],
   reliability: {
-    title: 'Reliability you can trust.',
+    title: 'Hosting plus technical assistance.',
     description:
-      '99.9% uptime focus, redundant infrastructure, and proactive monitoring keep your sites running.',
+      'You get managed hosting, practical troubleshooting, and support paths that keep websites stable when technical issues appear.',
     image: '/illustrations/cloud-hosting.svg',
     highlights: [
-      'Free SSL and automated backups',
-      'Customizable hosting plans',
-      'One-click app deployments',
-      'Real-time usage monitoring',
+      'Automatic backups with recovery help',
+      'SSL, DNS, and email setup support',
+      'Priority issue handling on higher plans',
+      'Website stability and monitoring workflows',
+    ],
+  },
+  community: {
+    title: 'Join Our Telegram Community',
+    description:
+      'Get access to free website templates, launch resources, practical website tips, and helpful updates.',
+    ctaLabel: 'Join the Community',
+    ctaUrl: site.telegramSupportUrl,
+    note:
+      'Community access is an added benefit. Core technical support stays available through official support channels.',
+    benefits: [
+      'Free website templates',
+      'Launch checklists and setup resources',
+      'Practical hosting and deployment tips',
+      'Helpful updates for ongoing maintenance',
     ],
   },
   faq: [
@@ -296,9 +335,9 @@ export const homeContent = {
 
 export const pageCopy = {
   pricing: {
-    title: 'Pricing designed for confident decisions.',
+    title: 'Managed hosting plans with real technical support.',
     description:
-      'Cards for quick plan choice, comparison table for deeper evaluation, and renewal visibility where applicable.',
+      'Choose the plan that fits your workload and support needs. Every plan includes managed hosting plus practical troubleshooting and technical assistance.',
     currencyLabel: 'Currency',
     billingLabel: 'Billing cycle',
     monthlyLabel: 'Monthly',
@@ -307,8 +346,9 @@ export const pageCopy = {
     introOfferLabel: 'Intro offer for first billing cycle',
     renewalNoticeLabel: 'Renews at standard rate after first term',
     notes: [
-      'NGN and USD billing are both available.',
-      'Annual billing includes 2 months free compared with monthly pricing.',
+      'Managed hosting for businesses that need technical help, not just server space.',
+      'Support includes deployment troubleshooting, configuration assistance, and minor stability fixes.',
+      'Telegram community access includes free templates and launch resources.',
       'USD plans show renewal visibility before checkout.',
     ],
     plans: pricingPlans,
@@ -398,7 +438,7 @@ export const pageCopy = {
     support: {
       title: 'Support',
       description:
-        'Support is organized by request type so sales, billing, migration, and technical issues reach the right queue quickly.',
+        'Managed hosting with 24/7 technical support for deployment issues, website stability concerns, and day-to-day operational troubleshooting.',
       sections: [
         {
           title: 'Choose the right support route',
@@ -412,9 +452,14 @@ export const pageCopy = {
           ],
         },
         {
-          title: 'What happens next',
+          title: 'What support helps with',
           body:
-            'You receive guided next-step support through the account portal and business support channels. Telegram is available as optional chat support only.',
+            'Support focuses on hosting-related technical issues, deployment troubleshooting, configuration assistance, and minor site fixes. Telegram is optional community chat, not the primary support workflow.',
+          bullets: [
+            'Failed deployments and launch-day troubleshooting',
+            'Broken SSL, DNS misconfiguration, and email setup issues',
+            'Plugin/theme conflicts and website errors after updates',
+          ],
         },
       ],
     },

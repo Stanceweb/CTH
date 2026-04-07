@@ -43,6 +43,7 @@ const planCards = computed(() =>
       ...plan,
       price: formatPrice(currency.value, price[billing.value]),
       cadence: cadenceLabel.value,
+      summary: plan.features.bestFor,
       renewal:
         renewalAmount === null
           ? pageCopy.pricing.introOfferLabel
@@ -55,6 +56,8 @@ const planCards = computed(() =>
         plan.features.ssl,
         plan.features.backups,
         plan.features.support,
+        plan.features.troubleshooting,
+        plan.features.community,
       ],
     }
   }),
@@ -227,6 +230,7 @@ useHead({
               Popular
             </span>
           </div>
+          <p class="mt-2 text-sm text-fg-muted">{{ plan.summary }}</p>
           <div class="mt-4 flex items-end gap-2">
             <span class="text-4xl font-bold text-fg-title">{{ plan.price }}</span>
             <span class="pb-1 text-fg-muted">/ {{ plan.cadence }}</span>
